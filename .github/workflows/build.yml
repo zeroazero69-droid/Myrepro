@@ -6,8 +6,8 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - run: unzip -q myrepro.zip
-      - run: sed -i 's/class MixEngine(ctx: Context/class MixEngine(private val ctx: Context/' myrepro/app/src/main/java/com/myrepro/MixEngine.kt
       - run: |
+          sed -i 's/class MixEngine(ctx/class MixEngine(private val ctx/' myrepro/app/src/main/java/com/myrepro/MixEngine.kt
           echo "android.useAndroidX=true" > myrepro/gradle.properties
           echo "org.gradle.jvmargs=-Xmx3g" >> myrepro/gradle.properties
       - uses: actions/setup-java@v4
